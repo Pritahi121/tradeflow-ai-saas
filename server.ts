@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // server.ts - Next.js Standalone + Socket.IO
 import { setupSocket } from '@/lib/socket';
 import { createServer } from 'http';
@@ -56,3 +57,23 @@ async function createCustomServer() {
 
 // Start the server
 createCustomServer();
+=======
+import { createServer } from 'http'
+import { parse } from 'url'
+import next from 'next'
+import type { IncomingMessage, ServerResponse } from 'http'
+
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
+
+app.prepare().then(() => {
+  createServer((req: IncomingMessage, res: ServerResponse) => {
+    const parsedUrl = parse(req.url || '', true)
+    handle(req, res, parsedUrl)
+  }).listen(3000, (err?: Error) => {
+    if (err) throw err
+    console.log('> Ready on http://localhost:3000')
+  })
+})
+>>>>>>> fbdce7b09de94b6ed4fcf01bf664975e802541b5
