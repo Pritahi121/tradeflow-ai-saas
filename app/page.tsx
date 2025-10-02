@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { 
   Zap, 
-  Clock, 
   Shield, 
   CheckCircle, 
   ArrowRight,
@@ -14,8 +13,6 @@ import {
   FileSpreadsheet,
   Users,
   Building,
-  Star,
-  TrendingUp,
   Globe,
   Lock,
   Sparkles,
@@ -28,7 +25,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function LandingPage() {
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
   const [hoveredPlan, setHoveredPlan] = useState<number | null>(null)
 
   const features = [
@@ -37,6 +33,7 @@ export default function LandingPage() {
       title: "AI-Powered Processing",
       description: "Advanced machine learning algorithms extract data with 99.5% accuracy",
       gradient: "from-purple-600 to-pink-600",
+      bgGradient: "from-purple-50 to-pink-50",
       stats: "99.5% Accuracy"
     },
     {
@@ -44,6 +41,7 @@ export default function LandingPage() {
       title: "Multi-Format Support",
       description: "Upload PDF, EML, TXT, and image files with drag-and-drop simplicity",
       gradient: "from-blue-600 to-cyan-600",
+      bgGradient: "from-blue-50 to-cyan-50",
       stats: "10+ Formats"
     },
     {
@@ -51,6 +49,7 @@ export default function LandingPage() {
       title: "Lightning Fast",
       description: "Process hundreds of POs in minutes, not hours",
       gradient: "from-orange-600 to-red-600",
+      bgGradient: "from-orange-50 to-red-50",
       stats: "< 2 Seconds"
     },
     {
@@ -58,6 +57,7 @@ export default function LandingPage() {
       title: "Enterprise Security",
       description: "Bank-level encryption with SOC 2 Type II compliance",
       gradient: "from-green-600 to-emerald-600",
+      bgGradient: "from-green-50 to-emerald-50",
       stats: "256-bit SSL"
     },
     {
@@ -65,6 +65,7 @@ export default function LandingPage() {
       title: "Real-time Analytics",
       description: "Track spending patterns and vendor performance instantly",
       gradient: "from-indigo-600 to-purple-600",
+      bgGradient: "from-indigo-50 to-purple-50",
       stats: "Live Dashboard"
     },
     {
@@ -72,6 +73,7 @@ export default function LandingPage() {
       title: "Global Integration",
       description: "Connect with your existing ERP and accounting systems",
       gradient: "from-teal-600 to-blue-600",
+      bgGradient: "from-teal-50 to-blue-50",
       stats: "50+ Integrations"
     }
   ]
@@ -308,8 +310,6 @@ export default function LandingPage() {
               <Card 
                 key={index} 
                 className={`border-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer bg-gradient-to-br ${feature.bgGradient || 'from-gray-50 to-white'} group`}
-                onMouseEnter={() => setHoveredFeature(index)}
-                onMouseLeave={() => setHoveredFeature(null)}
               >
                 <CardHeader className="text-center pb-6">
                   <div className={`w-20 h-20 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
