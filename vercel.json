@@ -3,6 +3,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
+  "protection": false,
   "env": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://fkzpupdphbwgadgdbimq.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZrenB1cGRwaGJ3Z2FkZ2RiaW1xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc4MDQ2MDIsImV4cCI6MjA0MzM4MDYwMn0.V8bLJr8aK9JqXvYfG5q2JN7t0wXf8L9rM2YKp6HdF3c",
