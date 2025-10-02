@@ -60,7 +60,7 @@ export default function SignupPage() {
       })
       
       if (error) {
-        setError(error.message)
+        setError(error.message || 'Signup failed')
       } else {
         setSuccess(true)
         // Redirect to dashboard after successful signup

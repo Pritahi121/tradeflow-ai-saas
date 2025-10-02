@@ -1,16 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { supabase } from '@/lib/supabase'
-
-interface UserQuota {
-  id: string
-  user_id: string
-  monthly_quota: number
-  remaining_credits: number
-  monthly_credits: number
-}
 
 interface PurchaseOrder {
   id: string
@@ -18,7 +10,7 @@ interface PurchaseOrder {
   po_number: string
   vendor_name?: string
   total_amount: number
-  items?: any
+  items?: Record<string, unknown>
   status?: string
   created_at: string
 }
@@ -45,13 +37,7 @@ export const useUserData = () => {
   const [recentPOs, setRecentPOs] = useState<PurchaseOrder[]>([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    if (user) {
-      fetchUserData()
-    }
-  }, [user])
-
-  const fetchUserData = async () => {
+  const fetchUserData = useCallback(async () => {
     if (!user) return
 
     try {
@@ -112,7 +98,13 @@ export const useUserData = () => {
     } finally {
       setLoading(false)
     }
-  }
+  }, [user])
+
+  useEffect(() => {
+    if (user) {
+      fetchUserData()
+    }
+  }, [user, fetchUserData])
 
   return {
     userStats,

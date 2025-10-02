@@ -1,15 +1,25 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
-import { User, Session, AuthChangeEvent } from '@supabase/supabase-js'
+import { User, Session } from '@supabase/supabase-js'
 import { supabase } from '@/lib/supabase'
+
+interface AuthResponse {
+  data: {
+    user?: User | null
+    session?: Session | null
+  } | null
+  error: {
+    message?: string
+  } | null
+}
 
 interface AuthContextType {
   user: User | null
   session: Session | null
   loading: boolean
-  signIn: (email: string, password: string) => Promise<any>
-  signUp: (email: string, password: string, metadata?: any) => Promise<any>
+  signIn: (email: string, password: string) => Promise<AuthResponse>
+  signUp: (email: string, password: string, metadata?: Record<string, string>) => Promise<AuthResponse>
   signOut: () => Promise<void>
 }
 
@@ -17,8 +27,8 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   session: null,
   loading: true,
-  signIn: async () => {},
-  signUp: async () => {},
+  signIn: async () => ({ data: null, error: null }),
+  signUp: async () => ({ data: null, error: null }),
   signOut: async () => {},
 })
 
@@ -107,7 +117,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return { data, error }
   }
 
-  const signUp = async (email: string, password: string, metadata?: any) => {
+  const signUp = async (email: string, password: string, metadata?: Record<string, string>) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,

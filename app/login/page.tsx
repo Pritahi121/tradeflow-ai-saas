@@ -31,8 +31,8 @@ export default function LoginPage() {
       const { data, error } = await signIn(email, password)
       
       if (error) {
-        setError(error.message)
-      } else if (data.user) {
+        setError(error.message || 'Authentication failed')
+      } else if (data?.user) {
         router.push('/dashboard')
       }
     } catch {
