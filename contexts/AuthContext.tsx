@@ -14,12 +14,22 @@ interface AuthResponse {
   } | null
 }
 
+interface OAuthResponse {
+  data: {
+    provider?: string
+    url?: string | null
+  } | null
+  error: {
+    message?: string
+  } | null
+}
+
 interface AuthContextType {
   user: User | null
   session: Session | null
   loading: boolean
   signIn: (email: string, password: string) => Promise<AuthResponse>
-  signInWithGoogle: () => Promise<AuthResponse>
+  signInWithGoogle: () => Promise<OAuthResponse>
   signUp: (email: string, password: string, metadata?: Record<string, string>) => Promise<AuthResponse>
   signOut: () => Promise<void>
 }
