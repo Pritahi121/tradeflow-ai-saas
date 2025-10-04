@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 97ef0cc56ed4c916931a4219c7dd35c7b7daa48e
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,
@@ -23,3 +27,13 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+<<<<<<< HEAD
+=======
+=======
+  devIndicators: false,
+};
+
+export default nextConfig;
+
+>>>>>>> fbdce7b09de94b6ed4fcf01bf664975e802541b5
+>>>>>>> 97ef0cc56ed4c916931a4219c7dd35c7b7daa48e

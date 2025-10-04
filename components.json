@@ -5,11 +5,26 @@
   "tsx": true,
   "tailwind": {
     "config": "",
+<<<<<<< HEAD
     "css": "src/app/globals.css",
+=======
+<<<<<<< HEAD
+    "css": "src/app/globals.css",
+=======
+    "css": "app/globals.css",
+>>>>>>> fbdce7b09de94b6ed4fcf01bf664975e802541b5
+>>>>>>> 97ef0cc56ed4c916931a4219c7dd35c7b7daa48e
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  "iconLibrary": "lucide",
+>>>>>>> fbdce7b09de94b6ed4fcf01bf664975e802541b5
+>>>>>>> 97ef0cc56ed4c916931a4219c7dd35c7b7daa48e
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -17,5 +32,15 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
+<<<<<<< HEAD
   "iconLibrary": "lucide"
 }
+=======
+<<<<<<< HEAD
+  "iconLibrary": "lucide"
+}
+=======
+  "registries": {}
+}
+>>>>>>> fbdce7b09de94b6ed4fcf01bf664975e802541b5
+>>>>>>> 97ef0cc56ed4c916931a4219c7dd35c7b7daa48e
